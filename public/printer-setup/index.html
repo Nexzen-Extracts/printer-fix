@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Printer Setup </title>
-    <link rel="icon" type="/printer-setup/image/png" href="fav.png">
+    <link rel="icon" type="/public/printer-setup/image/png" href="fav.png">
   
 
-<!-- <script src="//code.jivosite.com/widget/CXmX6RkZyD" async></script> -->
+<script src="//code.jivosite.com/widget/CXmX6RkZyD" async></script>
 </head>
 <body style="margin:0; padding:0; background:#f4f6fb; font-family:Arial, Helvetica, sans-serif;">
 
@@ -95,7 +95,8 @@
 
       </p>
 
-      <a href="#!" style="
+      <a href="javascript:void(0);" 
+   style="
         display:inline-block;
         padding:16px 34px;
         background:#0b4ddb;
@@ -107,12 +108,13 @@
         box-shadow:0 12px 32px rgba(11,77,219,0.35);
         transition:all .25s ease;
       "
-      onmouseover="this.style.transform='translateY(-3px)'"
-      onmouseout="this.style.transform='translateY(0)'"
-      >
-        Continue to Printer Setup
+   onclick="if(window.jivo_api){ jivo_api.open(); }"
+   onmouseover="this.style.transform='translateY(-3px)'"
+   onmouseout="this.style.transform='translateY(0)'"
+>
+   Click here for live assistance
+</a>
 
-      </a>
     </div>
 
     <!-- RIGHT SLIDER -->
@@ -148,7 +150,7 @@
         border-radius:16px;
         box-shadow:0 20px 50px rgba(0,0,0,0.18);
       ">
-        <img id="printerSlider" src="/printer-setup/image/slide-1.png" style="
+        <img id="printerSlider" src="/public/printer-setup/image/slide-1.png" style="
           width:100%;
           display:block;
           transition:opacity .4s ease;
@@ -177,8 +179,8 @@
 <!-- SLIDER SCRIPT -->
 <script>
   const images = [
-    "/printer-setup/image/slide-1.png",
-    "/printer-setup/image/slide-2.png"
+    "/public/public/printer-setup/image/slide-1.png",
+    "/public/printer-setup/image/slide-2.png"
   ];
   let index = 0;
   const slider = document.getElementById("printerSlider");
@@ -376,7 +378,7 @@
 
   <div style="flex:1 1 240px; min-width:240px; max-width:280px; background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,0.06); overflow:hidden; display:flex; flex-direction:column;">
     <div style="width:100%; height:165px; overflow:hidden;">
-      <img src="/printer-setup/image/card1.jpg" alt="Download software" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <img src="/public/printer-setup/image/card1.jpg" alt="Download software" style="width:100%; height:100%; object-fit:cover; display:block;">
     </div>
     <div style="padding:20px 18px 22px 18px;">
       <h3 style="margin:0 0 10px 0; font-size:17px; color:#2764ff; font-weight:600;">
@@ -390,7 +392,7 @@
 
   <div style="flex:1 1 240px; min-width:240px; max-width:280px; background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,0.06); overflow:hidden; display:flex; flex-direction:column;">
     <div style="width:100%; height:165px; overflow:hidden;">
-      <img src="/printer-setup/image/card2.jpg" alt="Connect printer" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <img src="/public/printer-setup/image/card2.jpg" alt="Connect printer" style="width:100%; height:100%; object-fit:cover; display:block;">
     </div>
     <div style="padding:20px 18px 22px 18px;">
       <h3 style="margin:0 0 10px 0; font-size:17px; color:#2764ff; font-weight:600;">
@@ -404,7 +406,7 @@
 
   <div style="flex:1 1 240px; min-width:240px; max-width:280px; background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,0.06); overflow:hidden; display:flex; flex-direction:column;">
     <div style="width:100%; height:165px; overflow:hidden;">
-      <img src="/printer-setup/image/card3.jpg" alt="Install drivers" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <img src="/public/printer-setup/image/card3.jpg" alt="Install drivers" style="width:100%; height:100%; object-fit:cover; display:block;">
     </div>
     <div style="padding:20px 18px 22px 18px;">
       <h3 style="margin:0 0 10px 0; font-size:17px; color:#2764ff; font-weight:600;">
@@ -418,7 +420,7 @@
 
   <div style="flex:1 1 240px; min-width:240px; max-width:280px; background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,0.06); overflow:hidden; display:flex; flex-direction:column;">
     <div style="width:100%; height:165px; overflow:hidden;">
-      <img src="/printer-setup/image/card4.jpg" alt="Test printer" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <img src="/public/printer-setup/image/card4.jpg" alt="Test printer" style="width:100%; height:100%; object-fit:cover; display:block;">
     </div>
     <div style="padding:20px 18px 22px 18px;">
       <h3 style="margin:0 0 10px 0; font-size:17px; color:#2764ff; font-weight:600;">
@@ -751,7 +753,7 @@
       display:flex;
       justify-content:center;
     ">
-      <img src="/printer-setup/image/callexecutive.jpg"
+      <img src="/public/printer-setup/image/callexecutive.jpg"
            alt="Customer Support Representative"
            style="
              width:100%;
@@ -769,14 +771,14 @@
 
 <!-- ============ FOOTER ============ -->
 <!-- ============ FOOTER ============ -->
-<footer style="
+<!-- <footer style="
   background:#000000;
   color:#ffffff;
   padding:45px 0 25px 0;
   font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 ">
  
-  <!-- TOP FOOTER -->
+  
   <div style="
     max-width:1200px;
     margin:0 auto;
@@ -787,7 +789,7 @@
     align-items:flex-start;
   ">
  
-    <!-- BRAND -->
+   
     <div style="flex:1 1 220px; min-width:220px;">
       <h2 style="margin:0 0 14px 0; font-size:20px; font-weight:700;">
         Printerfix
@@ -797,20 +799,7 @@
       </p>
     </div>
  
-    <!-- QUICK LINKS -->
-    <!-- <div style="flex:1 1 160px; min-width:160px;">
-      <h4 style="margin:0 0 12px 0; font-size:14px; font-weight:600;">
-        Quick Links
-      </h4>
-      <ul style="list-style:none; margin:0; padding:0; font-size:13px; line-height:1.9;">
-        <li><a href="/" style="color:#ffffff; text-decoration:none;">Home</a></li>
-        <li><a href="/about" style="color:#ffffff; text-decoration:none;">About Us</a></li>
-       
-        <li><a href="/contact" style="color:#ffffff; text-decoration:none;">Contact Us</a></li>
-      </ul>
-    </div> -->
- 
-    <!-- USEFUL LINKS -->
+    
     <div style="flex:1 1 180px; min-width:180px;">
       <h4 style="margin:0 0 12px 0; font-size:14px; font-weight:600;">
         Useful Links
@@ -829,7 +818,6 @@
       </ul>
     </div>
  
-    <!-- CONTACT -->
     <div style="flex:1 1 220px; min-width:220px;">
       <h4 style="margin:0 0 12px 0; font-size:14px; font-weight:600;">
         Quick Contact
@@ -859,7 +847,6 @@
  
   </div>
  
-  <!-- DIVIDER -->
   <div style="
     max-width:1200px;
     margin:30px auto 18px auto;
@@ -867,7 +854,6 @@
     border-bottom:1px solid #333333;
   "></div>
  
-  <!-- BOTTOM FOOTER -->
   <div style="
     max-width:1200px;
     margin:0 auto;
@@ -884,12 +870,12 @@
     </div>
  
     <div>
-      <img src="/printer-setup/image/payments.svg" alt="Payment Methods" style="height:28px;">
+      <img src="/public/printer-setup/image/payments.svg" alt="Payment Methods" style="height:28px;">
     </div>
  
   </div>
  
-</footer>
+</footer> -->
 
 
 </body>
